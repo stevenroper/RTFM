@@ -30,7 +30,7 @@ We're going to create a multi-user, real-time forum (RTFM).
 3. Include your new view and controller in your ```login``` route.
 
 
-## Step 3: Set Up Environment Variables
+## Step 4: Set Up Environment Variables
 
 1. Create a new file at ```/app/env.js``` and set it up like so...
 
@@ -77,7 +77,7 @@ read out ```{{ env }}}``` in your ```login.html``` view to confirm that your env
 correctly. You should see your ```window.env``` object logged out onto your login view.
 
 
-## Step 4: Create a Login Form
+## Step 5: Create a Login Form
 
 1. Open up ```login.html``` and create a text input bound to ```$scope.username``` and a button that calls
 ```logMeIn(username)``` when clicked.
@@ -108,7 +108,7 @@ controller to the ```threads``` route in ```app.js```.
 7. Test your login and make sure that it forwards you to the stubbed threads view.
 
 
-## Step 5: Protect our Routes
+## Step 6: Protect our Routes
 A problem we're going to run into as we're setting up our routing is sometimes we only want certain authenticated users to see certain routes. What we're going to do in this step is to secure our routes so only those people who we want to see certain routes will be able to. 
 
 1. Head over to your app.js file and under your .config block, add a new .run block. This .run block will be the first thing that Angular runs before your app starts to be initialized. 
@@ -122,7 +122,7 @@ A problem we're going to run into as we're setting up our routing is sometimes w
 is how you tell angular to listen for certain events. So in side your .run block, tell angular to listen for the '$routeChangeStart' event and pass it a callback function with a 'event', 'next', and 'current' parameter. As you can imagine, 'event' is the event that's happening, 'next' is the route the application is going to, and 'current' is the current route the application is on.
 4. Inside your callback, check to see if ```EnvironmentService.getUserName()''' returns a truthy value, if it doesn't that means the user hasn't been created - which means we need to redirect the user to the login page IE $location.path('/login'). If it does, set a property on $rootScope (for now) of username with the value being what getUserName returned.
 
-## Step 4: Create a Thread Service and Use Firebase Refs
+## Step 7: Create a Thread Service and Use Firebase Refs
 
 1. Create a ThreadService and put it the appropriate folder.
 2. Create methods named ```getThreads``` and ```getThread``` to generate AngularFire references to all threads and any
@@ -199,7 +199,7 @@ thread.$save();
 
 Notice that we you could set the object property ```thread.title``` just as you would any JS object.
 
-### Step 5: Set up Threads view
+### Step 8: Set up Threads view
 
 1. Let's set up ```threads.html``` with a list of threads, an input and a button to create a new thread, and links to
 each thread's unique page.
@@ -250,7 +250,7 @@ angular.module('rtfmApp')
   });
 ```
 
-### Step 6: Set Up Individual Thread Views
+### Step 9: Set Up Individual Thread Views
 
 1. Create a ```ThreadCtrl``` and a ```thread.html```
 2. Add the new controller and view to the ```thread``` route in ```app.js```. Also create a resolve for ```thread```
