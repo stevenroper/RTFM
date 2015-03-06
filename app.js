@@ -4,7 +4,8 @@ app.config(function($routeProvider) {
 
 	$routeProvider
 	.when('/login', {
-
+		templateUrl: './login/loginTmpl.html',
+		controller: 'LoginController'
 	})
 	.when('/threads', {
 
