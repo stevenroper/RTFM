@@ -1,5 +1,5 @@
 var app = angular.module('rtfmApp');
 
-app.controller('LoginController', function($scope) {
-	$scope.test = "Woot!";
+app.controller('LoginController', function($scope, EnvironmentService) {
+	$scope.env = EnvironmentService.getEnv();
 });
