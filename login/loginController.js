@@ -5,6 +5,7 @@ app.controller('LoginController', function($scope, EnvironmentService, $location
 
 	$scope.logMeIn = function(username) {
 		alert(username);
+		//EnvironmentService.saveUserName(username);
 		$location.path('/threads');
 	};
 
