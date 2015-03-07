@@ -8,7 +8,8 @@ app.config(function($routeProvider) {
 		controller: 'LoginController'
 	})
 	.when('/threads', {
-
+		templateUrl: '/threads/threads.html',
+		controller: 'ThreadsController'
 	})
 	.when('/threads/:threadId', {
 
